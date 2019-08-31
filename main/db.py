@@ -1,10 +1,14 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-from flask_sqlalchemy import SQLAlchemy
+if os.getenv('FLASK_ENV') == 'development':
+    DATABASE_PATH = 'sqlite:///C:\\sqlite\\test.db'
+else:
+    DATABASE_PATH = 'sqlite:///:memory:'
 
-DATABASE_PATH = 'sqlite:///C:\\sqlite\\test.db'
 
 engine = create_engine(DATABASE_PATH, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
@@ -19,7 +23,8 @@ def init_db(app):
     # they will be registered properly on the metadata.  Otherwise
     # you will have to import them first before calling init_db()
     import main.models
-    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_PATH
     Base.metadata.create_all(bind=engine)
-    db = SQLAlchemy(app)
-    return db
+
+
+def close_db(app):
+    db_session.remove()

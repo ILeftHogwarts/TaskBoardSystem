@@ -1,4 +1,4 @@
-from flask import jsonify, Blueprint, request, make_response
+from flask import jsonify, Blueprint, request
 
 from main.controllers import TaskBoardController, TaskController
 
