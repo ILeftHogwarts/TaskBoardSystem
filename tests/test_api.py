@@ -29,6 +29,8 @@ def test_taskboard_get(client):
     resp = client.test_client().get('/api/taskboard')
     print(resp.data)
     assert resp.status == 200
+    tb_ctrl = TaskBoardController()
+    assert resp.data == tb_ctrl.get_taskboadrs()
 
 
 # def test_taskboard_create(set_up):

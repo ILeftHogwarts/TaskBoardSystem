@@ -1,5 +1,8 @@
 TaskBoardSystem
 ===============
+Simple app for task tracking
+
+
 To run application
 Set up environment variables
 
@@ -18,10 +21,13 @@ flask run
 TODO
 =====
 
-On shutdown event and close db connection
-Tests with mocked data(in memory database and clear data )
-Config files and environment variables structure
++ On shutdown event and close db connection
+Tests with mocked data (in memory database and clear data)
+Config files and environment variables structure and move credentials to env variables
 Serializer mixin
 Validation mixin
 Check flake8
-Check if there is another way to set up db layer
+Check if there is another way to set up db layer(kinda weird to hold db_session in open scope)
+Swagger
+
+
