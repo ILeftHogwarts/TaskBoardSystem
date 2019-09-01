@@ -22,8 +22,8 @@ TODO
 =====
 
 + On shutdown event and close db connection
-Tests with mocked data (in memory database and clear data)
-Config files and environment variables structure and move credentials to env variables
++ Tests with mocked data (in memory database and clear data)
++ Config files and environment variables structure and move credentials to env variables
 Serializer mixin
 Validation mixin
 Check flake8
